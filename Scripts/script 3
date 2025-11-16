@@ -1,0 +1,31 @@
+#!/bin/bash
+# netcheck.sh
+# Simple script to check internet and network status
+
+echo "========== Network Check =========="
+echo "Date: $(date)"
+echo ""
+
+echo "Checking internet connectivity..."
+ping -c 2 google.com > /dev/null 2>&1
+
+if [ $? -eq 0 ]; then
+    echo "Internet Status: Connected ✔"
+else
+    echo "Internet Status: Not Connected ✘"
+fi
+echo ""
+
+echo "---- IP Address (hostname -I) ----"
+hostname -I
+echo ""
+
+echo "---- Default Gateway (ip route) ----"
+ip route | grep default
+echo ""
+
+echo "---- DNS Servers (cat /etc/resolv.conf) ----"
+cat /etc/resolv.conf | grep nameserver
+echo ""
+
+echo "Network test completed."

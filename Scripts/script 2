@@ -1,0 +1,24 @@
+#!/bin/bash
+# system_check.sh
+# Simple CPU & memory monitoring script for assignment
+
+echo "========== System Check Report =========="
+echo "Date & Time: $(date)"
+echo ""
+
+echo "---- Uptime ----"
+uptime
+echo ""
+
+echo "---- Top CPU consuming processes (top 5) ----"
+top -b -n1 | head -n 12
+echo ""
+
+echo "---- Memory Usage ----"
+free -h
+echo ""
+
+echo "---- Disk Usage ----"
+df -h
+echo ""
+echo "Report finished."

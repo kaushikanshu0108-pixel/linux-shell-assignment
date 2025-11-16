@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Simple backup script
+# This script copies a file to a backup folder with the current date
+
+echo "Enter the file name to backup:"
+read filename
+
+backup_folder="backup_$(date +%Y-%m-%d)"
+
+mkdir -p $backup_folder
+
+cp $filename $backup_folder/
+
+echo "Backup of $filename created inside $backup_folder/"
